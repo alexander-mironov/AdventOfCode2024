@@ -1,0 +1,20 @@
+Register A: 35200350
+Register B: 0
+Register C: 0
+
+Program: 2,4,1,2,7,5,4,7,1,3,5,5,0,3,3,0
+
+b = a % 8  <-------|
+b = b xor 0b10     |
+c = a / 2^b        |
+b = b xor c        |
+b = b xor 0b11     |
+out b % 8          |
+a = a / 8          |
+a != 0 ------------|
+
+b = (a % 8) xor 0b010
+c = a / 2^b (число a - b цифр справа)
+b = b xor c xor 0b011
+out b % 8
+a = a / 8 (убрать 3 цифры справа)
